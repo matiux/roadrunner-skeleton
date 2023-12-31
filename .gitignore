@@ -1,0 +1,10 @@
+.idea
+vendor/
+.env
+
+###> friendsofphp/php-cs-fixer ###
+.php_cs
+.php-cs-fixer.cache
+.php_cs.cache
+lsp
+###< friendsofphp/php-cs-fixer ###

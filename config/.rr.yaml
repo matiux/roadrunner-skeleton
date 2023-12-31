@@ -1,0 +1,40 @@
+version: "3"
+
+rpc:
+  listen: tcp://127.0.0.1:6001
+
+server:
+  command: "php /app/src/Worker/HttpWorker.php"
+
+http:
+  address: :8080
+  pool:
+    # https://roadrunner.dev/docs/php-developer/current/en#debug-mode
+    debug: false
+    num_workers: 1
+    max_jobs: 64
+#    supervisor:
+#
+#      # watch_tick specifies how often RoadRunner checks the state of worker processes. The default value is 1 second,
+#      # but you can set it to a lower value for stricter supervision.
+#      watch_tick: 1s
+#
+#      # specifies the maximum lifetime of a worker process. After this interval, the worker process will be terminated
+#      # and replaced with a new one. The default value is 60 seconds, but you can set it to a lower value to save
+#      # resources.
+#      ttl: 60s
+#
+#      # specifies the maximum time a worker process can remain idle before being terminated. If a worker process does
+#      # not process any requests for this interval, it will be terminated and replaced with a new one.
+#      # The default value is 0, which disables this feature.
+#      idle_ttl: 10s
+#
+#      # specifies the maximum execution time for each job processed by a worker process. If a job is not completed
+#      # within this interval, it will be terminated and reassigned to another worker process. The default value is 10
+#      # seconds, but you can set it to a lower value to avoid deadlocks.
+#      exec_ttl: 10s
+#
+#      # limits the maximum amount of memory that a worker process can use. If a worker process exceeds this limit, it
+#      # will be terminated and replaced with a new one. The default value is 100 MB, but you can set it to a lower
+#      # value to prevent memory saturation.
+#      max_worker_memory: 100

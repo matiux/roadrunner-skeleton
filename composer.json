@@ -1,0 +1,40 @@
+{
+  "name": "matiux/roadrunner-skeleton",
+  "description": "A docker environment skeleton for RoadRunner",
+  "keywords": ["roadrunner", "docker"],
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Matteo Galacci",
+      "email": "m.galacci@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^8.2",
+    "nyholm/psr7": "^1.8",
+    "spiral/roadrunner-http": "^3.3"
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "optimize-autoloader": true
+  },
+  "autoload": {
+    "psr-4": {
+      "Worker\\": "src/Worker"
+    }
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.45",
+    "matiux/php-project-autopilot": "dev-master"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "bash vendor/matiux/php-project-autopilot/src/configure.sh"
+    ],
+    "post-update-cmd": [
+      "bash vendor/matiux/php-project-autopilot/src/configure.sh"
+    ]
+  }
+}
