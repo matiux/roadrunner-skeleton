@@ -1,6 +1,7 @@
 .idea
 vendor/
 .env
+protoc-gen-php-grpc
 
 ###> friendsofphp/php-cs-fixer ###
 .php_cs
