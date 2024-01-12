@@ -18,5 +18,5 @@ services:
     working_dir: /app
     volumes:
       - ../:/app:delegated
-      - ../config/.rr.yaml:/etc/rr.yaml
+      - ../rr_config/.rr.yaml:/etc/rr.yaml
       - ./data/shell_history:/home/utente/shell_history
