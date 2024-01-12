@@ -6,9 +6,53 @@ rpc:
 server:
   command: "php /app/src/Worker/HttpWorker.php"
 
+grpc:
+  # GRPC address to listen
+  #
+  # This option is required
+  listen: "tcp://0.0.0.0:9001"
+
+  # Proto file to use, multiply files supported [SINCE 2.6]. As of [2023.1.4], wilcards are allowed in the proto field.
+  #
+  # This option is required
+  proto:
+    - "/app/proto/pinger.proto"
+#    - "*.proto"
+#    - "first.proto"
+#    - "second.proto"
+
+  # Usual workers pool configuration
+  pool:
+    # Debug mode for the pool. In this mode, pool will not pre-allocate the worker.
+    # Worker (only 1, num_workers ignored) will be allocated right after the request arrived.
+    #
+    # Default: false
+    debug: false
+
+    # Override server's command
+    #
+    # Default: empty
+    command: "php /app/src/Worker/gRPCWorker.php"
+
+    # How many worker processes will be started. Zero (or nothing) means the number of logical CPUs.
+    #
+    # Default: 0
+    num_workers: 1
+
+
+
+#grpc:
+#  listen: "tcp://127.0.0.1:9001"
+#  pool:
+#    command: "php /app/src/Worker/gRPCWorker.php"
+#    num_workers: 1
+#  proto:
+#    - "/app/proto/pinger.proto"
+
 http:
   address: :8080
   pool:
+    #command: "php /app/src/Worker/HttpWorker.php"
     # https://roadrunner.dev/docs/php-developer/current/en#debug-mode
     debug: false
     num_workers: 1

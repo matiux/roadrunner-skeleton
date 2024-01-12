@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option php_namespace = "Worker\\GRPC\\Generated\\Pinger";
+option php_metadata_namespace = "Worker\\GRPC\\Generated\\GPBMetadata";
+
+package pinger;
+
+service Pinger {
+  rpc ping (PingRequest) returns (PingResponse) {}
+}
+
+message PingRequest {
+  string url = 1;
+}
+
+message PingResponse {
+//  int32 status_code = 1;
+  string status_response = 1;
+}

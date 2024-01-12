@@ -13,6 +13,8 @@
   "require": {
     "php": "^8.2",
     "nyholm/psr7": "^1.8",
+    "spiral/roadrunner-cli": "^2.6",
+    "spiral/roadrunner-grpc": "^3.2",
     "spiral/roadrunner-http": "^3.3"
   },
   "config": {

@@ -73,3 +73,22 @@ rr -c /etc/rr.yaml reset # Reload RR
 ```
 
 At this point, set your breakpoint and run application http://localhost:8080
+
+
+## TODO
+
+gRPC
+https://roadrunner.dev/docs/plugins-grpc/current/en
+
+`grpcurl -plaintext -proto proto/pinger.proto 127.0.0.1:9001 list`
+
+`grpcurl -plaintext -proto proto/pinger.proto -d '{"url": "https://example.com"}' localhost:9001 pinger.Pinger/ping`
+
+`netstat -lnp`
+
+```bash
+protoc --plugin=protoc-gen-php-grpc \
+--php_out=./src \
+--php-grpc_out=./src \
+proto/pinger.proto
+```
